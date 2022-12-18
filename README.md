@@ -1,6 +1,10 @@
-# Drop-down menu
+# Dropdown menu
 
-A drop-down menu snippet written in HTML, CSS and JavaScript.
+A dropdown menu snippet written in HTML, CSS and JavaScript.
+
+## Live Demo
+
+[https://emanuelefavero.github.io/dropdown-menu/](https://emanuelefavero.github.io/dropdown-menu/)
 
 > Note: This snippet uses the free [https://boxicons.com/](https://boxicons.com/) icon library
 
