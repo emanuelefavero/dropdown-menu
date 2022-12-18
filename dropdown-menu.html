@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- box icons - https://boxicons.com/ CDN -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, -apple-system, 'SF Pro', BlinkMacSystemFont,
+          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+          'Helvetica Neue', sans-serif;
+      }
+
+      body {
+        margin: 2rem;
+        background-color: #181a25;
+        font-size: 0.9rem;
+      }
+
+      .dropdown-menu .btn {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        column-gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.08) 2px 2px 7px 0px,
+          rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        background-color: rgb(204, 221, 242);
+        color: rgb(33, 33, 33);
+        position: relative;
+      }
+
+      .dropdown-menu .icon {
+        font-size: 1.1rem;
+      }
+
+      .dropdown-menu .dropdown {
+        position: absolute;
+        width: 250px;
+        box-shadow: rgba(0, 0, 0, 0.08) 2px 2px 7px 0px,
+          rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+        color: rgb(33, 33, 33);
+        border-radius: 0.5rem;
+        margin-top: 0.3rem;
+        background-color: #ccdef4;
+        overflow: hidden;
+
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(0.5rem);
+        transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
+      }
+
+      .dropdown-menu .dropdown a {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+        padding: 0.8rem 1rem;
+        text-decoration: none;
+        color: rgb(33, 33, 33);
+      }
+
+      .dropdown-menu .dropdown a:hover {
+        background-color: #bfd1e8;
+      }
+
+      .dropdown-menu .show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0rem);
+      }
+
+      .dropdown-menu .arrow {
+        transform: rotate(180deg);
+        transition: 0.2s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown-menu">
+      <button class="btn" id="btn">
+        Dropdown
+        <i class="icon bx bx-chevron-down" id="arrow"></i>
+      </button>
+
+      <div class="dropdown" id="dropdown">
+        <a href="#">
+          <i class="icon bx bx-plus-circle"></i>
+          Create New
+        </a>
+        <a href="#">
+          <i class="icon bx bx-book"></i>
+          All Drafts
+        </a>
+        <a href="#">
+          <i class="icon bx bx-folder"></i>
+          Move To
+        </a>
+        <a href="#">
+          <i class="icon bx bx-user"></i>
+          Profile Settings
+        </a>
+        <a href="#">
+          <i class="icon bx bx-bell"></i>
+          Notification
+        </a>
+        <a href="#">
+          <i class="icon bx bx-cog"></i>
+          Settings
+        </a>
+      </div>
+    </div>
+    <script>
+      const dropdownBtn = document.getElementById('btn')
+      const dropdownMenu = document.getElementById('dropdown')
+      const toggleArrow = document.getElementById('arrow')
+
+      // Toggle dropdown function
+      const toggleDropdown = () => {
+        dropdownMenu.classList.toggle('show')
+        toggleArrow.classList.toggle('arrow')
+      }
+
+      // Toggle dropdown open/close when dropdown button is clicked
+      dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        toggleDropdown()
+      })
+
+      // Close dropdown when dom element is clicked
+      document.documentElement.addEventListener('click', () => {
+        if (dropdownMenu.classList.contains('show')) {
+          toggleDropdown()
+        }
+      })
+    </script>
+  </body>
+</html>
